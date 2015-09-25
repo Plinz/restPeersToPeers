@@ -17,8 +17,8 @@ import org.junit.Test;
 public class UserResourceTest extends JerseyTest {
 
 	/**
-	 * Il est obligatoire de redéfinir cette méthode qui permet de configurer le
-	 * contexte de Jersey
+	 * Il est obligatoire de redefinir cette methode qui permet de configurer le
+	 * contexte de Jerse
 	 */
 	@Override
 	protected Application configure() {
@@ -26,7 +26,7 @@ public class UserResourceTest extends JerseyTest {
 	}
 
 	/**
-	 * Test de création d'un utilisateur (retour HTTP et envoi de l'URI de la
+	 * Test de creation d'un utilisateur (retour HTTP et envoi de l'URI de la
 	 * nouvelle instance)
 	 */
 	@Test
@@ -36,13 +36,13 @@ public class UserResourceTest extends JerseyTest {
 		Entity<User> userEntity = Entity.entity(user,
 				MediaType.APPLICATION_JSON);
 
-		// Envoi de la requête HTTP POST pour la création de l'utilisateur
+		// Envoi de la requete HTTP POST pour la creation de l'utilisateur
 		Response response = target("/users").request().post(userEntity);
 
-		// Vérification du code de retour HTTP
+		// Verification du code de retour HTTP
 		assertEquals(201, response.getStatus());
 
-		// Vérification que la création renvoie bien l'URI de la nouvelle
+		// Verification que la creation renvoie bien l'URI de la nouvelle
 		// instance dans le header HTTP 'Location'
 		// ici : http://localhost:8080/users/jsteed
 		URI uriAttendue = target("/users").path(user.getLogin()).getUri();
