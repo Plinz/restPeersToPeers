@@ -1,8 +1,15 @@
 <html>
 <body>
-    <h2>Jersey RESTful Web Application!</h2>
-    <p><a href="webapi/myresource">Jersey resource</a>
-    <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
-    for more information on Jersey!
-</body>
+	<p>
+		<%@ page import="fr.iut.p2p.Client"%> 
+   		<%  
+   			Client client = new Client(InetAddress.getByName("localhost"), 5001);
+			client.register();
+			client.receiveUuid();
+			client.initInformations();
+			client.receiveList();
+			out.println(client.getList());
+    	%>
+	</p>
+	</body>
 </html>
